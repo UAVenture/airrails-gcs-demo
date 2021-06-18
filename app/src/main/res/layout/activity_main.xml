@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#021e3c"
-    tools:context="com.uaventure.airrails.gcs.demos.notifications.MainActivity">
+    tools:context="com.uaventure.airrails.gcs.demo.notifications.MainActivity">
 
     <Button
         android:id="@+id/fab"

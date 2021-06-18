@@ -1,4 +1,4 @@
-package com.uaventure.airrails.gcs.demos.notifications
+package com.uaventure.airrails.gcs.demo.notifications
 
 import android.content.ComponentName
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.content.ServiceConnection
 import android.os.*
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.uaventure.airrails.gcs.demos.R
+import com.uaventure.airrails.gcs.demo.R
 import timber.log.Timber
 
 
