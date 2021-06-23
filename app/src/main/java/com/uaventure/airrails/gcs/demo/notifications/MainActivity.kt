@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
         val btn: Button = findViewById(R.id.fab)
         btn.setOnClickListener {
-            sendTakeoffPermission("a7df876af86af8af", 5 * 60)
+            sendTakeoffPermission("000000000000", 1 * 60)
         }
     }
 
