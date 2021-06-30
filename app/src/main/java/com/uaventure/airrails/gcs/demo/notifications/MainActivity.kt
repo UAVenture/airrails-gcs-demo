@@ -13,18 +13,14 @@ import timber.log.Timber
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        /** Service commands  */
-        @JvmStatic
-        val MSG_ALLOW_TAKEOFF: Int = 1
-
         /**
          * Important: This will vary based on the GCS build.
          */
         @JvmStatic
-        val PACKAGE_NAME: String = "com.uaventure.airrails.gcs.uaventure"
+        val PACKAGE_NAME: String = "com.uaventure.airrails.gcs.aerialoop"
 
         @JvmStatic
-        val SERVICE_NAME: String = "com.uaventure.airrails.gcs.services.NotificationService"
+        val SERVICE_NAME: String = "com.uaventure.airrails.gcs.services.NotificationReceiverService"
     }
 
     /** Messenger for communicating with the service.  */
@@ -79,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         bundle.putString("uid", uid)
         bundle.putLong("expire", expireSecs)
 
-        val msg: Message = Message.obtain(null, MSG_ALLOW_TAKEOFF, bundle)
+        val msg: Message = Message.obtain(null, NotificationService.MSG_ALLOW_TAKEOFF, bundle)
 
         try {
             mService?.send(msg)
