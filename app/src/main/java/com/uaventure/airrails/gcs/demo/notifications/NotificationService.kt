@@ -14,6 +14,7 @@ class NotificationService: Service() {
     companion object {
         public const val MSG_RESERVED = 0
         public const val MSG_ALLOW_TAKEOFF = 1
+        public const val MSG_LOAD_PLAN = 2
 
         public const val MSG_EVENT_ON_GROUND = 100
         public const val MSG_EVENT_TAKEOFF = 101

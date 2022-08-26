@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.*
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.uaventure.airrails.gcs.demo.R
 import timber.log.Timber
@@ -63,6 +64,12 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             sendTakeoffPermission("000000000000", 1 * 60)
         }
+
+        val planUidEdit: EditText = findViewById(R.id.planUid)
+        val sendPlanUidBtn: Button = findViewById(R.id.planUidBtn)
+        sendPlanUidBtn.setOnClickListener {
+            sendLoadFlightPlan(planUidEdit.text.toString())
+        }
     }
 
     private fun sendTakeoffPermission(uid: String, expireSecs: Long) {
@@ -74,9 +81,27 @@ class MainActivity : AppCompatActivity() {
 
         bundle.putString("uid", uid)
         bundle.putLong("expire", expireSecs)
-        bundle.putString("planUid", "fa095321-5774-40f8-90e7-474239b44236")
 
         val msg: Message = Message.obtain(null, NotificationService.MSG_ALLOW_TAKEOFF, bundle)
+
+        try {
+            mService?.send(msg)
+
+        } catch (e: RemoteException) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun sendLoadFlightPlan(uid: String) {
+        if (!bound) {
+            bindService()
+        }
+
+        val bundle = Bundle()
+
+        bundle.putString("planUid", uid)
+
+        val msg: Message = Message.obtain(null, NotificationService.MSG_LOAD_PLAN, bundle)
 
         try {
             mService?.send(msg)

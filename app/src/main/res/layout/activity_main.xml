@@ -8,11 +8,31 @@
     android:background="#021e3c"
     tools:context="com.uaventure.airrails.gcs.demo.notifications.MainActivity">
 
-    <Button
-        android:id="@+id/fab"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
-        android:text="Takeoff Permission"/>
+
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Takeoff Permission"/>
+
+        <EditText
+            android:id="@+id/planUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="fa095321-5774-40f8-90e7-474239b44236" />
+
+        <Button
+            android:id="@+id/planUidBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load Plan"/>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
