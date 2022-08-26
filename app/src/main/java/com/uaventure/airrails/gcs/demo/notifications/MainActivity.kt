@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         bundle.putString("uid", uid)
         bundle.putLong("expire", expireSecs)
+        bundle.putString("planUid", "fa095321-5774-40f8-90e7-474239b44236")
 
         val msg: Message = Message.obtain(null, NotificationService.MSG_ALLOW_TAKEOFF, bundle)
 
